@@ -7,13 +7,15 @@ def pega_url():
     origem = os.getcwd().replace("\\","/")
     return origem
 
-def cria_audio(audio):
+def cria_audio(mensagem, arquivo):
     
-    tts = gTTS(audio, lang='pt-br')
-    tts.save('audios/bem_vindo.mp3')
+    tts = gTTS(mensagem, lang='pt-br')
+    tts.save(f'audios/{arquivo}.mp3')
     
     # call(['afplay', 'audios/hello.mp3']) # OSX
     # call(['aplay', 'audios/bem_vindo.mp3']) # LINUX 
-    playsound(f'{pega_url()}/audios/bem_vindo.mp3')
+    playsound(f'{pega_url()}/audios/{arquivo}.mp3')
     
-cria_audio('Oi, eu sou a cristal, seja bem vindo!')
+
+cria_audio('Poxa vai me fechar? Tchau!', 'fechar')
+    
